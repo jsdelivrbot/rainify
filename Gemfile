@@ -35,3 +35,4 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'shopify_app'
 gem 'dotenv-rails'
+gem 'shopify_api'
