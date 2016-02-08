@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require foundation
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
+
+
+$(document).ready(function(){
+	$("#rainify_check").click(function(){
+		$.ajax({
+			method: "POST",
+			url: '/shops/'+ this.value+ '/toggle',
+			data: {"rainify": this.checked}
+		})
+	})
+})

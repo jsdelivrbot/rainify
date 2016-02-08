@@ -9,10 +9,20 @@
   </script>
 <% end %>
 
-<h2>Products</h2>
+<div id='background'>
+  
+</div>
 
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
-  <% end %>
-</ul>
+<div class='row'>
+  <div class='small-12 columns text-center'>
+    <h1>
+      Rainify
+      <%= @main_theme.name %>
+    </h1>
+
+    <%= form_for @shop do |f| %>
+      <%= f.check_box :rainify, id: "rainify_check" %>
+    <% end %>
+
+  </div>
+</div>

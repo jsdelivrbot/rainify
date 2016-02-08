@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     get 'logout' => :destroy, :as => :logout
   end
 
+  resources :shops do 
+    member do
+      post 'toggle'
+    end
+  end
+
   root :to => 'home#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
