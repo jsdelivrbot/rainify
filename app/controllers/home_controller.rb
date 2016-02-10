@@ -5,7 +5,7 @@ class HomeController < AuthenticatedController
 
     	new_script = ShopifyAPI::ScriptTag.new
     	new_script.event = "onload"
-    	new_script.src = "https://rawgit.com/Tommyixi/rainify/master/app/assets/javascripts/tommy.js"
+    	new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
     	new_script.save
 
   end
