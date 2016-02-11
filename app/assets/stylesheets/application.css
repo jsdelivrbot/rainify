@@ -19,15 +19,15 @@
  h1{
  	font-family: 'Open Sans', sans-serif;
  	font-weight: 700;
- 	font-size: 8em;
- 	color:#84C0CB;
+ 	font-size: 4em;
+ 	color:#72AEDA;
  }
 
  p{
  	font-family: 'Open Sans', sans-serif;
- 	font-weight: 700;
- 	font-size: 3em;
- 	color:#84C0CB;
+ 	font-weight: 300;
+ 	font-size: 2em;
+ 	color:#72AEDA;
  }
 
 input[type="checkbox"]{

@@ -1,0 +1,11 @@
+LOG:  database system was shut down at 2016-02-11 08:17:36 PST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist
+FATAL:  database "rainify_development" does not exist

@@ -20,10 +20,10 @@ $(function(){ $(document).foundation(); });
 function checkForRain(){
 	if($("#rainify_check")[0].checked){
 		$('body').css("background-image", "url(rain.png)")
-		$("#rain_status").html("Your site will have rain.")
+		$("#rain_status").html("Your site will have rain").fadeIn("slow");
 	}else{
 		$('body').css("background-image", "none")
-		$("#rain_status").html("Your site will not have rain.")
+		$("#rain_status").html("Your site will not have rain").fadeIn("slow");
 	}
 }
 
@@ -31,7 +31,8 @@ $(document).ready(function(){
 	checkForRain();
 	$("body").height($(document).height())
 	$("#rainify_check").click(function(){
-	checkForRain();
+		$("#rain_status").hide()
+		checkForRain();
 		$.ajax({
 			method: "POST",
 			url: '/shops/'+ this.value+ '/toggle',
