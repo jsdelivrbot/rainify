@@ -20,10 +20,10 @@ $(function(){ $(document).foundation(); });
 function checkForRain(){
 	if($("#rainify_check")[0].checked){
 		$('body').css("background-image", "url(rain.png)")
-		$("#rain_status").html("Your site will have rain").fadeIn("slow");
+		$("#rain_status").html("Your store will have rain").fadeIn("slow");
 	}else{
 		$('body').css("background-image", "none")
-		$("#rain_status").html("Your site will not have rain").fadeIn("slow");
+		$("#rain_status").html("Your store will not have rain").fadeIn("slow");
 	}
 }
 

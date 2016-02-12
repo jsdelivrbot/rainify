@@ -11,10 +11,10 @@
 
 <div class='row'>
   <div class='small-12 columns text-center'>
-    <h1>
-      Rainify
-    </h1>
+    <h1>Rainify</h1>
     <p><%= @shop.shopify_domain %></p>
+  </div>
+  <div class="small-12 columns text-center">
 
     <%= form_for @shop do |f| %>
       <%= f.check_box :rainify, id: "rainify_check" %>
@@ -22,5 +22,8 @@
   </div>
   <div class='small-12 columns text-center more-margin'>
     <p id="rain_status"></p>
+  </div>
+  <div class='text-center'>
+    <p>Check out <%= link_to("your store!", "https://#{@shop.shopify_domain}", class: "store-link", target: "_blank")%></p>
   </div>
 </div>

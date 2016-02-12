@@ -9,3 +9,12 @@ FATAL:  database "rainify_development" does not exist
 FATAL:  database "rainify_development" does not exist
 FATAL:  database "rainify_development" does not exist
 FATAL:  database "rainify_development" does not exist
+FATAL:  terminating connection due to administrator command
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-02-11 18:38:56 PST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
