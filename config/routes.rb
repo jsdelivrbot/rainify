@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'home#index'
   
   controller :sessions do
     get 'login' => :new, :as => :login
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root :to => 'home#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
