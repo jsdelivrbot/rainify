@@ -1,0 +1,25 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
+<% end %>
+
+<div class='row'>
+  <div class='small-12 columns text-center'>
+    <h1>Rainify</h1>
+    <p>Your free trial has ended.</p>
+  </div>
+  <div class="small-12 columns text-center">
+  	<%= link_to "Please click here to schedule a recurring charge of $2.99 per month to your credit card.", payments_sign_up_recurring_path %>
+  </div>
+  <div class='small-12 columns text-center more-margin'>
+    <p id="rain_status"></p>
+  </div>
+  <div class='text-center'>
+  </div>
+</div>
