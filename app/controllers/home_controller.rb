@@ -1,4 +1,5 @@
 class HomeController < AuthenticatedController
+    around_filter :shopify_session
   def index
     check_payment
     @shop = current_shop
