@@ -14,7 +14,6 @@ class PaymentsController < AuthenticatedController
 		payment.name = "Monthly Rainify Charge"
 		payment.price = "2.99"
 		payment.return_url = "http:\/\/rainify.herokuapp.com/payments/activate"
-		payment.test =  true
 		payment.save
 
 		redirect_to payment.confirmation_url
