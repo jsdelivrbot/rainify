@@ -6,7 +6,7 @@ class PaymentsController < AuthenticatedController
 		payment = ShopifyAPI::RecurringApplicationCharge.find(params[:charge_id])
 		payment.activate
 		current_shop.update_attributes(charge: params[:charge_id])
-		redirect_to root_path
+		redirect_to "/"
 	end
 
 	def sign_up_recurring

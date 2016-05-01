@@ -1,5 +1,4 @@
 class HomeController < AuthenticatedController
-    before_action :check_user
   def index
     check_payment
     @shop = current_shop
@@ -17,13 +16,6 @@ class HomeController < AuthenticatedController
         end
     end
 
-  end
-
-  def check_user
-    if current_shop
-    else
-        redirect_to login_path
-    end
   end
 
 end

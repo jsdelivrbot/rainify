@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
         redirect_to payments_path  
       end
   	else # The trial expired, the app is installed, and they need to pay.
+      ShopifyAPI::ScriptTag.all.each do |script|
+        if script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+          script.destroy
+        end
+      end      
   		current_shop.update_attributes(rainify: false)
   		redirect_to payments_path
   	end
