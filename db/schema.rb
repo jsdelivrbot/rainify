@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20160501201959) do
   enable_extension "plpgsql"
 
   create_table "shops", force: :cascade do |t|
-    t.string   "shopify_domain",                                 null: false
-    t.string   "shopify_token",                                  null: false
+    t.string   "shopify_domain",                 null: false
+    t.string   "shopify_token",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "rainify",        default: false
-    t.datetime "expiration",     default: '2016-05-03 20:20:56'
+    t.datetime "expiration"
     t.integer  "charge"
   end
 
