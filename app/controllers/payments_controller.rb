@@ -12,7 +12,7 @@ class PaymentsController < AuthenticatedController
 	def sign_up_recurring
 		payment = ShopifyAPI::RecurringApplicationCharge.new
 		payment.name = "Monthly Rainify Charge"
-		payment.price = "2.99"
+		payment.price = "1.99"
 		payment.return_url = "http:\/\/rainify.herokuapp.com/payments/activate"
 		payment.save
 
