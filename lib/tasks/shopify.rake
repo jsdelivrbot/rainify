@@ -2,7 +2,6 @@ namespace :shopify do
   desc "Updates scripts to prevent free loaders"
   task :update_scripts => :environment do
 		Shop.all.each do |shop|
-	    shop = Shop.find(shop.id)
 	    shop.with_shopify_session do # New API session
 		  	if shop.expiration > DateTime.now # Still in trial mode.
 		    elsif shop.charge # a payment had been made in the past..
