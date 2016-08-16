@@ -35,6 +35,7 @@ gem 'shopify_app'
 gem 'shopify_api'
 gem 'dotenv-rails'
 gem 'foundation-rails'
+gem 'omniauth-oauth2', '~> 1.2.0'
 # gem 'better_errors'
 # gem 'binding_of_caller'
 

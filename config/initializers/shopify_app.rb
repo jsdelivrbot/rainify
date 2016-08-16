@@ -1,7 +1,7 @@
 ShopifyApp.configure do |config|
   config.api_key = ENV['key']
   config.secret = ENV['secret']
-  config.redirect_uri = "rainify.herokuapp.com/auth/shopify/callback"
+  config.redirect_uri = "http://rainify.herokuapp.com/auth/shopify/callback"
   config.scope = "write_script_tags, read_script_tags"
   config.embedded_app = true
 end
