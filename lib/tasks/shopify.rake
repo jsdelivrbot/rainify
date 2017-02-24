@@ -9,7 +9,7 @@ namespace :shopify do
 		      end
 		  	else # The trial expired, the app is installed, and they need to pay.
 		      ShopifyAPI::ScriptTag.all.each do |script|
-		        if script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+		        if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
 		          script.destroy
 		        end
 		      end      
