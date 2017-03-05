@@ -6,7 +6,7 @@ ShopifyApp.configure do |config|
   config.embedded_app = true
 
   config.webhooks = [
-    {topic: "app/uninstalled", address: "http://rainify.herokuapp.com/uninstall"}
+    {topic: "app/uninstalled", address: "http://rainify.herokuapp.com/update_uninstall"}
   ]  
 
 end
