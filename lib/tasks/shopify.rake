@@ -18,4 +18,14 @@ namespace :shopify do
 	    end
 		end
   end
+	desc "prints scripts"
+  task :print_scripts => :environment do
+		Shop.all.each do |shop|
+	    shop.with_shopify_session do # New API session
+	    	ShopifyAPI::ScriptTag.all.each do |script|
+	    		print script.src
+	    	end
+			end
+  	end  
+	end
 end

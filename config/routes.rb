@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :shops do 
     member do
       post 'toggle'
+      get 'check_paid'
     end
   end
 
