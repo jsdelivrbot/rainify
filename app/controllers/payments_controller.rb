@@ -15,6 +15,10 @@ class PaymentsController < AuthenticatedController
 		payment.price = "1.99"
 		payment.return_url = "http:\/\/rainify.herokuapp.com/payments/activate"
 		payment.save
+		new_script = ShopifyAPI::ScriptTag.new
+  	new_script.event = "onload"
+  	new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify_paid.js"
+  	new_script.save
 
 		redirect_to payment.confirmation_url
 	end
