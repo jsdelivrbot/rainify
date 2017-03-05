@@ -6,7 +6,12 @@ namespace :shopify do
 		    shop.with_shopify_session do # New API session
 			  	if shop.expiration > DateTime.now # Still in trial mode.
 			    elsif shop.charge # a payment had been made in the past..
-			      if ShopifyAPI::RecurringApplicationCharge.find(shop.charge).status == "cancelled" #The app was uninstalled
+			      if ShopifyAPI::RecurringApplicationCharge.find(shop.charge).status == "cancelled" #Installed at one point, now freeloading.
+				      ShopifyAPI::ScriptTag.all.each do |script|
+				        if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+				          script.destroy
+				        end
+				      end   			      	
 			      end
 			  	else # The trial expired, the app is installed, and they need to pay.
 			      ShopifyAPI::ScriptTag.all.each do |script|
@@ -22,16 +27,6 @@ namespace :shopify do
 		  end
 		end
   end
-	desc "prints scripts"
-  task :print_scripts => :environment do
-		Shop.all.each do |shop|
-	    shop.with_shopify_session do # New API session
-	    	ShopifyAPI::ScriptTag.all.each do |script|
-	    		print script.src
-	    	end
-			end
-  	end  
-	end
 end
 
 

@@ -5,9 +5,6 @@ ShopifyApp.configure do |config|
   config.scope = "write_script_tags, read_script_tags"
   config.embedded_app = true
 
-  config.webhooks = [
-    {topic: "app/uninstalled", address: "http://rainify.herokuapp.com/update_uninstall"}
-  ]  
 
 end
 ShopifyAPI::Session.setup({:api_key => ENV['key'], :secret => ENV['secret']})
