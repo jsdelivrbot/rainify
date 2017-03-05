@@ -2,6 +2,7 @@ class HomeController < AuthenticatedController
   def index
     check_payment
     @shop = current_shop
+    @shop.update_attributes(uninstall: false)
 
     if @shop.rainify
         new_script = ShopifyAPI::ScriptTag.new

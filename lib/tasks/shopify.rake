@@ -29,3 +29,12 @@ namespace :shopify do
   	end  
 	end
 end
+
+
+# Shop.all.each do |shop|
+# 	session = ShopifyAPI::Session.new(shop.shopify_domain, shop.shopify_token)
+# 	ShopifyAPI::Base.activate_session(session)
+# 	ShopifyAPI::ScriptTag.all.each do |script|
+# 		print script.src
+# 	end
+# end
