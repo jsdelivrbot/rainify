@@ -17,8 +17,5 @@ Rails.application.routes.draw do
 
   get '/payments/sign_up_recurring', to: 'payments#sign_up_recurring'
 
-  post '/update_uninstall', to: 'webhooks#update_uninstall'
-
   resources :payments
-
 end
