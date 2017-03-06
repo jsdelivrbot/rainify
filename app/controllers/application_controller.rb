@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def check_payment
   	if current_shop.expiration > DateTime.now # Still in trial mode.
     elsif current_shop.charge # a payment had been made in the past..
-      if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" #The app was uninstalled
+      if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" || "declined" #The app was uninstalled
         redirect_to payments_path  
       end
   	else # The trial expired, the app is installed, and they need to pay.

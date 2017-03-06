@@ -13,3 +13,5 @@
 /tmp
 env
 .env
+.gitignore
+.DS_Store
