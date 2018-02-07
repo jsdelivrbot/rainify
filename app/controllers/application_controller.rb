@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def check_payment
   	if current_shop.expiration > DateTime.now
     elsif current_shop.charge # a payment had been made in the past..
-      if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" || "declined" #The app was uninstalled
+      if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" || "declined" || "expired" || "frozen" #The app was uninstalled
         redirect_to payments_path 
       elsif ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "active" || "pending" || "accepted" 
       end
