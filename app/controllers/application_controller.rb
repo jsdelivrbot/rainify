@@ -20,10 +20,11 @@ class ApplicationController < ActionController::Base
           if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
             script.destroy
           end
-        end      
+        end     
     		current_shop.update_attributes(rainify: false)
     		redirect_to payments_path
     	end
+    end
   end
 
   
