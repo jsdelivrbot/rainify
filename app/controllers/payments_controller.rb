@@ -4,11 +4,8 @@ class PaymentsController < AuthenticatedController
 
 	def show
 		payment = ShopifyAPI::RecurringApplicationCharge.find(params[:charge_id])
-		if payment.status == "accepted" 
-			payment.activate
-		end
+		payment.activate
 		current_shop.update_attributes(charge: params[:charge_id])
-		end
 		redirect_to "/"
 	end
 
@@ -17,13 +14,13 @@ class PaymentsController < AuthenticatedController
 		payment.name = "Monthly Rainify Charge"
 		payment.price = "1.99"
 		payment.return_url = "http:\/\/rainify.herokuapp.com/payments/activate"
-		if payment.save
-			new_script = ShopifyAPI::ScriptTag.new
-  		new_script.event = "onload"
-  		new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
-  		new_script.save
-			redirect_to payment.confirmation_url
-		end
+		payment.save
+		new_script = ShopifyAPI::ScriptTag.new
+  	new_script.event = "onload"
+  	new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+  	new_script.save
+
+		redirect_to payment.confirmation_url
 	end
 end
 
