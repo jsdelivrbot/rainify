@@ -10,20 +10,20 @@ class ApplicationController < ActionController::Base
 
   def check_payment
   	if current_shop.expiration > DateTime.now
-    elsif current_shop.charge # a payment had been made in the past..
-      if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" || "declined" || "expired" #The app was uninstalled
-        redirect_to payments_path 
-      elsif ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "active" || "pending" || "accepted" 
-      end
-  	else # The trial expired, the app is installed, and they need to pay.
-      ShopifyAPI::ScriptTag.all.each do |script|
-        if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
-          script.destroy
+      if current_shop.charge # a payment had been made in the past..
+        if ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "cancelled" || "declined" || "expired" #The app was uninstalled
+          redirect_to payments_path 
+        elsif ShopifyAPI::RecurringApplicationCharge.find(current_shop.charge).status == "active" || "pending" || "accepted" 
         end
-      end      
-  		current_shop.update_attributes(rainify: false)
-  		redirect_to payments_path
-  	end
+    	else # The trial expired, the app is installed, and they need to pay.
+        ShopifyAPI::ScriptTag.all.each do |script|
+          if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+            script.destroy
+          end
+        end      
+    		current_shop.update_attributes(rainify: false)
+    		redirect_to payments_path
+    	end
   end
 
   
