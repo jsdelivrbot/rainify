@@ -5,7 +5,11 @@ class PaymentsController < AuthenticatedController
 	def show
 		payment = ShopifyAPI::RecurringApplicationCharge.find(params[:charge_id])
 		payment.activate
-		current_shop.update_attributes(charge: params[:charge_id])
+		if current_shop.shopify_domain == "rainboots-and-shoes.myshopify.com"
+			current_shop.update_attributes(charge: params[:charge_id], flag: true)
+		else
+			current_shop.update_attributes(charge: params[:charge_id])
+		end
 		redirect_to "/"
 	end
 
