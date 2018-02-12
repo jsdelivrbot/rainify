@@ -29,11 +29,12 @@ namespace :shopify do
   end
   desc "Give Free"
   task :give_free => :environment do
-  	current_shop = Shop.where(shopify_domain: "peach-puddle.myshopify.com").first
+		Shop.all.where(shopify_domain: "peach-puddle.myshopify.com").each do |shop|
 			new_script = ShopifyAPI::ScriptTag.new
   		new_script.event = "onload"
   		new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
-  		new_script.save		
+  		new_script.save					
+		end  	
   end  
 end
 
