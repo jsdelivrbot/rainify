@@ -30,6 +30,8 @@ namespace :shopify do
   desc "Give Free"
   task :give_free => :environment do
 		Shop.all.where(shopify_domain: "peach-puddle.myshopify.com").each do |shop|
+			session = ShopifyAPI::Session.new(shop.shopify_domain, shop.shopify_token)
+			ShopifyAPI::Base.activate_session(session)
 			new_script = ShopifyAPI::ScriptTag.new
   		new_script.event = "onload"
   		new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
