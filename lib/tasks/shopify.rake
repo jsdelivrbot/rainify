@@ -8,14 +8,14 @@ namespace :shopify do
 			    elsif shop.charge # a payment had been made in the past..
 			      if ShopifyAPI::RecurringApplicationCharge.find(shop.charge).status == "cancelled" || "declined" || "expired" #Installed at one point, now freeloading.
 				      ShopifyAPI::ScriptTag.all.each do |script|
-				        if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+				        if script.src == "https://cdn.jsdelivr.net/gh/Tommyixi/rainify/public/rainify.js"
 				          script.destroy
 				        end
 				      end   			      	
 			      end
 			  	else # The trial expired, the app is installed, and they need to pay.
 			      ShopifyAPI::ScriptTag.all.each do |script|
-			        if script.src == "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+			        if script.src == "https://cdn.jsdelivr.net/gh/Tommyixi/rainify/public/rainify.js"
 			          script.destroy
 			        end
 			      end      
@@ -34,7 +34,7 @@ namespace :shopify do
 			ShopifyAPI::Base.activate_session(session)
 			new_script = ShopifyAPI::ScriptTag.new
   		new_script.event = "onload"
-  		new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+  		new_script.src = "https://cdn.jsdelivr.net/gh/Tommyixi/rainify/public/rainify.js"
   		new_script.save					
 		end  	
   end  

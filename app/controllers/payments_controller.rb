@@ -17,7 +17,7 @@ class PaymentsController < AuthenticatedController
 		payment.save
 		new_script = ShopifyAPI::ScriptTag.new
   	new_script.event = "onload"
-  	new_script.src = "https://rawgit.com/Tommyixi/rainify/master/public/rainify.js"
+  	new_script.src = "https://cdn.jsdelivr.net/gh/Tommyixi/rainify/public/rainify.js"
   	new_script.save
 
 		redirect_to payment.confirmation_url
